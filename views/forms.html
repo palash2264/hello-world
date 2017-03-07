@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>KP Styleguide :: Forms</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="main.css" />
+  <script src="modern.bundle.js"></script>
+
+  <meta charset="UTF-8">
+  <meta name=viewport content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <header class="styleguide-header">
+    <button id="menu-button" class="device-menu-button">Menu</button>
+    <img src='assets/images/kp-icon.svg' alt="Kaiser Permanente Logo" class="logo" />
+    <a href="index.html"><span class="desktop-only">Web Design</span> Styleguide</a>
+  </header>
+
+  <main class="styleguide-main">
+    <article>
+      <section>
+        <h2 class="styleguide-section-heading">Forms</h2>
+        <h3 class="styleguide-subheading">
+          Form Controls
+        </h3>
+
+        <p>Always associate a label with a form field with the purpose of the field.</p>
+        <div class="example -minor -padded">
+          <div class="form-group">
+            <label for="exampleInputEmail">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail" value="Happy.Member@kp.org" placeholder="primary.email@example.com">
+          </div>
+        </div>
+
+        <p>Base styling for checkboxes can be applied with the form-control class. These checkboxes are 20px squares.</p>
+        <div class="example -minor -padded">
+          <input type="checkbox" id="unselected" class="form-control" />
+          <label for="unselected">This is an unselected checkbox</label>
+          <br />
+          <input type="checkbox" id="selected" class="form-control" checked/>
+          <label for="selected">I'm selected already!</label>
+        </div>
+
+        <div class="example -minor -padded">
+          <input type="checkbox" id="unselected-disabled" class="form-control" disabled="true" />
+          <label for="unselected-disabled">Can't touch this.</label>
+          <br />
+          <input type="checkbox" id="selected-disabled" class="form-control" checked="true" disabled="true" />
+          <label for="selected-disabled">I was once selected but no longer enabled.</label>
+        </div>
+
+        <p>To create checkboxes of a different size, include the following mixin in your Sass. You must provide a classname, box size, and optionally a font-size.</p>
+
+        <pre class="code language-sass"><code>
+          .my-30-px-checkbox {
+          @include checkbox(30px, $medium-font-size);
+          }
+        </code>
+      </pre>
+      <div class="example -minor -padded">
+        <input type="checkbox" id="30px-enabled" class="my-30-px-checkbox" />
+        <label for="30px-enabled">This checkbox is so big.</label>
+        <br />
+        <input type="checkbox" id="30px-disabled" class="my-30-px-checkbox" checked="true" disabled="true" />
+        <label for="30px-disabled">This checkbox is so big and disabled.</label>
+      </div>
+      <p>Append the class name <code>"radio-button"</code> to apend the styles of to your project radio buttons. Use the attribute <code>checked="checked"</code> to preselect a radio button. Basic radio buttons that make sense from their labels alone and use matching <code>name</code> attribute, do not require fieldset or legend. </p>
+      <div class="example -minor -padded">
+        <input class="radio-button" type="radio" value="0" name="radio-group" checked="checked" value="selected">
+        <label for="selected">I'm selected already!</label>
+        <br>
+        <input class="radio-button" type="radio" value="1" name="radio-group" value="default">
+        <label for="default">This is an default unselected radio button</label>
+      </div>
+      <p><code>Fieldset</code> and <code>legend</code>should only be used to associate groups of controls when a higher level description is needed. Do not use nested fieldsets.</p>
+      <div class="example -minor -padded">
+        <fieldset>
+          <legend>Choose your favorite basketball team:</legend>
+          <input class="radio-button" type="radio" name="basketball" value="Lakers">
+          <label for="Lakers">LA Lakers</label>
+          <br>
+          <input class="radio-button" type="radio" name="basketball" value="Warriors">
+          <label for="Warriors">Golden State Warriors</label>
+          <br>
+          <input class="radio-button" type="radio" name="basketball" value="Clippers">
+          <label for="Clippers">Clippers</label>
+        </fieldset>
+      </div>
+      <p>To create a disabled button use <code>disalbed="true"</code>  attribute </p>
+      <div class="example -minor -padded">
+        <input  type="radio" value="disabled-button" name="radio-read-only" disabled="true">
+        <label for="disabled-button">I'm a disabled radio button option for read only purpose</label>
+      </div>  
+      </section>
+    </article>
+  </main>
+</body>
+</html>
