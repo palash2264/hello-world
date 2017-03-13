@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>KP Styleguide :: Contributing</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href="main.css" />
+</head>
+
+<body>
+  <header class="styleguide-header">
+    <button id="menu-button" class="device-menu-button">Menu</button>
+    <img src='assets/images/kp-icon.svg' alt="Kaiser Permanente Logo" />
+    <a href="index.html"><span class="desktop-only">Web Design</span> Styleguide</a>
+  </header>
+  <main class="styleguide-main">
+    <h1 id="contributing-to-styleguide">Contributing to Styleguide</h1>
+<p>We&#39;re so glad you&#39;re thinking about contributing to an KP open source project!</p>
+<p>If you&#39;re unsure about anything, just ask us on Hipchat — or submit a pull request on Stash and we&#39;ll have a look.</p>
+<p>The worst that can happen is you&#39;ll be politely asked to change something. We appreciate all friendly contributions.</p>
+<p><em>There is no dedicated Styleguide team, so we could really use your help!</em></p>
+<p>If you find information is out of date or unclear, please submit a pull request to update it.</p>
+<p>Join the <a href="https://hipchat.kp.org/chat/room/19">Hipchat</a> room &quot;RWD Styleguide&quot; where can ask questions about Styleguide and what you need to get it up and running.</p>
+<h2 id="ways-you-can-contribute">Ways you can contribute</h2>
+<ul>
+<li>Raising issues - bugs, defects, typos/bad grammar in documentation.</li>
+<li><a href="https://jira.kp.org/browse/STYLE">JIRA Backlog</a> - check the backlog to see if something is on our roadmap and hasn&#39;t been picked up by anyone else.</li>
+<li>New Features - if your code is already integrated into the JKP project please follow the steps bellow to fork this repo, create a pull request, and get 2 approvals on your code to have it added to styleguide.</li>
+<li>Writing documentation - if you think there&#39;s a better way to explain the process please let us know and you can help us write. You don&#39;t even have to be too technical on this one. </li>
+</ul>
+<h2 id="before-you-begin">Before You begin</h2>
+<p>Make sure you have:</p>
+<ul>
+<li>Access to Stash and the Style guide repo and the build plugin</li>
+<li><a href="https://stash.kp.org/plugins/servlet/ssh/account/keys">SSH Keys</a> setup in Stash</li>
+<li><a href="https://nodejs.org/en/download/">Node JS v5</a> to run the Styleguide locally</li>
+<li><p>Join the RWD Styleguide chat room, use the node.js wizard to install onto your machine</p>
+<ul>
+<li>If you&#39;re using the latest version of hipchat:</li>
+<li>Go to <a href="https://hipchat.kp.org/invite/1/27bf4d05b314fdfb36b4dc25f5752b28">https://hipchat.kp.org/invite/1/27bf4d05b314fdfb36b4dc25f5752b28</a></li>
+<li>Fill out the following form and Complete the sign up process</li>
+<li>Launch the hipchat client.</li>
+<li>Click HipChat on the top bar, File &gt; Login to Another Team</li>
+</ul>
+<p><img src="https://sites.sp.kp.org/teams/dsg/creative/fed/SiteAssets/SitePages/Contributing%20to%20Styleguide/Screen%20Shot%202016-02-19%20at%2011.46.png" alt="hipchat setup"></p>
+<ul>
+<li>Server is: hipchat.kp.org (No http:// or https://)</li>
+<li>Enter Your Work email and SSO password.</li>
+</ul>
+</li>
+</ul>
+<h1 id="guidelines">Guidelines</h1>
+<h2 id="summary">Summary</h2>
+<p>The Current process is: fork the project, create a Pull Request, have the RWD styleguide team review, recieve minimum of 2 approvals, and merge the Pull Request.
+For an indepth overview of how to set up your workspace <a href="https://kponline.webex.com/kponline/ldr.php?RCID=0063c015376c2e0aacaff3d482b97010">stream</a> or <a href="https://kponline.webex.com/kponline/lsr.php?RCID=f077e6a97d264315f917bf798974d8fc">download</a> this video.</p>
+<h2 id="development-setup">Development Setup</h2>
+<ol>
+<li>In the styleguide repository fork the project to your own account</li>
+</ol>
+<h3 id="commands-to-develop-and-contribute-to-styleguide">Commands to Develop and Contribute to Styleguide</h3>
+<p>The styleguide has moved over to use NPM scripts to make building, serving and linting the project easier for new contributors. There are currently three commands that can be run but more can be added to the package.json as needed.</p>
+<h4 id="linting-the-project">Linting the Project</h4>
+<p>  This command will lint the scss files in lib/modern.</p>
+<pre><code>npm run lint
+</code></pre><h4 id="building-the-project">Building the Project</h4>
+<p>  This command will lint and build the project.</p>
+<pre><code>npm run build
+</code></pre><h4 id="serving-the-project">Serving the Project</h4>
+<p>  This command will lint and serve the project on port :4321.</p>
+<pre><code>npm start
+</code></pre><ol>
+<li>Pull down your forked version of styleguide locally to your machine</li>
+</ol>
+<p><img src="https://sites.sp.kp.org/teams/dsg/creative/fed/SiteAssets/SitePages/Contributing%20to%20Styleguide/Screen%20Shot%202016-02-19%20at%2012.12.46.png" alt="Forking styleguide"></p>
+<ol>
+<li>In your StyleGuide &gt; .git directory, update the git config file to the following so you can fetch pull requests, sync with upstream, and stay up to date with the latest code:</li>
+</ol>
+<pre><code>    [core]
+    repositoryformatversion = 0
+    filemode = true
+    bare = false
+    logallrefupdates = true
+    ignorecase = true
+    precomposeunicode = true
+
+    [remote &quot;origin&quot;]
+    url = ssh://git@stash.kp.org/~yourNUID/styleguide.git
+
+    [remote &quot;upstream&quot;]
+    url = ssh://git@stash.kp.org/rwd/styleguide.git
+    fetch = +refs/heads/*:refs/remotes/upstream/*
+    fetch = +refs/pull-requests/*/from:refs/remotes/upstream/pr/*
+
+    [branch &quot;master&quot;]
+    remote = origin
+    merge = refs/heads/master
+
+    [user]
+    email = your.email.used.instash.@kp.org
+</code></pre><h2 id="building-the-project-locally-with-grunt">Building the project locally with grunt</h2>
+<p>Now that you have your fork set up on the machine, install Styleguide&#39;s dependencies by running</p>
+<pre><code>    npm install
+</code></pre><p>After the dependencies are finished installing</p>
+<pre><code>    grunt serve
+</code></pre><p>and point your browser to <a href="http://localhost:4321/">http://localhost:4321/</a> to see Styleguide running on your machine.</p>
+<h2 id="testing-and-quality-assurance">Testing and Quality Assurance</h2>
+<p>Before opening a pull request, make sure all tests are green.
+If your pull request is adding a new javascript module, make sure you unit test the functionality.</p>
+<p><code>grunt ci</code></p>
+<h2 id="accessibility">Accessibility</h2>
+<p>Before your pull request is approved, or you approve a pull request, please test your change in a mobile iOS browser using voice over.
+Follow the <a href="https://developer.apple.com/library/ios/technotes/TestingAccessibilityOfiOSApps/TestAccessibilityonYourDevicewithVoiceOver/TestAccessibilityonYourDevicewithVoiceOver.html">Apple guidelines</a> for setting up VoiceOver and using gestures to check accessibility on a device.</p>
+<h3 id="kaiser-accessibility-resources-and-guidelines">Kaiser Accessibility Resources and Guidelines</h3>
+<ul>
+<li><a href="https://kaiser.ssbbartgroup.com/toolbox.php">SSBART Group Toolbox</a> -- Contact Mark Stimson or Pauline Kiet if you do not have access to this page.</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA">Mozilla Developer Network Getting Started with ARIA</a></li>
+<li><a href="http://heydonworks.com/practical_aria_examples">Practical ARIA Examples</a></li>
+<li><a href="http://www.powermapper.com/tests/screen-readers/aria/">ARIA Screenreader Compatibility Chart</a></li>
+</ul>
+<h2 id="opening-a-pull-request">Opening a pull request</h2>
+<ol>
+<li>Make your local commits as you would for any project and push them your fork to a topic branch that represents the changes you want to make to Styleguide. By running <code>git push origin my-topic-branch</code><blockquote>
+<p>In git, &quot;branches are cheap and easy.&quot; So the best thing to do when adding a new feature or fixing a bug in a git repo is to do that work on a separate &quot;topic&quot; branch.
+That is, a branch whose changes encompass, roughly, a single idea or topic: adds a single feature, or fixes a specific bug.
+This allows you to work on different features/bugs simultaneously and separately. You can keep updating a specific feature after you’ve submitted a pull request for it,
+which is handy if in the course of discussing the pull request other developers suggest changes to it.
+<a href="http://scholarslab.org/research-and-development/forking-fetching-pushing-pulling/">scholarslab.org</a></p>
+</blockquote>
+</li>
+<li><p>Please make sure you push to your fork and not the upstream remote.</p>
+</li>
+<li><p>Create a <a href="https://www.atlassian.com/git/tutorials/making-a-pull-request/">Pull Request</a> (PR ) using your forked repo</p>
+</li>
+</ol>
+<p><img src="https://sites.sp.kp.org/teams/dsg/creative/fed/SiteAssets/SitePages/Contributing%20to%20Styleguide/Screen%20Shot%202016-02-19%20at%2012.19.39%20PM.png" alt="Create PullRequest">
+<img src="https://sites.sp.kp.org/teams/dsg/creative/fed/SiteAssets/SitePages/Contributing%20to%20Styleguide/Screen%20Shot%202016-02-19%20at%2012.21.38%20PM.png" alt="Step2 PullRequest"></p>
+<ol>
+<li>In your Pull request provide detailed information about the reason for the fix, and a screenshot of the output from your local host. You need <strong>2 approvals</strong> before you can merge your pull request.</li>
+</ol>
+<p><img src="https://sites.sp.kp.org/teams/dsg/creative/fed/SiteAssets/SitePages/Contributing%20to%20Styleguide/Screen%20Shot%202016-03-16%20at%202.40.55%20PM.png" alt="Approval PullRequest"></p>
+<ol>
+<li>It&#39;s recommended to stay up-to-date in the RWD <a href="https://hipchat.kp.org/chat/room/19">Hipchat Styleguide Chat Room</a>, the project is synced in Jira and hipchat. Pull requests (PR), Merges, and commits alert everyone in the RWD Styleguide chatroom of activity.</li>
+<li>After your Code is approved by 2 reviewers, it will be eligible for merging.</li>
+<li>Once you watch your watching that those changes build and deploy correctly, party cause you are now a contributing member of the Styleguide repo!</li>
+</ol>
+<h1 id="resources-and-helpful-links">Resources and Helpful Links</h1>
+<ul>
+<li><a href="https://jira.kp.org/browse/STYLE">Jira board</a></li>
+<li><a href="http://dev10.kaiserpermanente.org/styleguide">Online Styleguide</a></li>
+<li><a href="http://xlzxdap0035x.lvdc.kp.org:8888/job/rwd-styleguide-AEM/">Jenkins Build Job</a></li>
+<li><a href="http://xlzxdap0035x.lvdc.kp.org:8888/job/rwd-styleguide-deploy-DEV10/">Jenkins Deploy Job</a></li>
+<li><a href="https://hipchat.kp.org/chat/room/19">Hipchat Styleguide Room</a></li>
+<li><a href="https://stash.kp.org/projects/RWD/repos/build-plugin/browse">Build Plugin</a></li>
+<li><a href="https://stash.kp.org/projects/RWD/repos/styleguide/pull-requests">Current open Pull Requests</a></li>
+</ul>
+<h1 id="reviewing-other-pull-requests">Reviewing Other Pull Requests</h1>
+<p>Read this blog post for <a href="http://dev.ghost.org/easy-git-pr-test/">detailed instructions</a> on configuring your environment to allow you to checkout pull requests with this simple command: <code>pr #1234</code>
+In terms of Stash configuration the second <code>fetch</code> line mentioned in the post would be</p>
+<pre><code>fetch = +refs/pull-requests/*/from:refs/remotes/upstream/pr/*
+</code></pre><h1 id="need-help-">Need Help?</h1>
+<p>If you&#39;re not completely clear on how to submit / update / or create a  Pull Requests, please check out Stash&#39;s <a href="https://confluence.atlassian.com/display/STASHSOURCE/Using+pull+requests+in+Stash">Pull Request guide</a>, or visit <a href="https://hipchat.kp.org/chat/room/19">Hipchat Styleguide Room</a> and we&#39;ll help you out</p>
+
+  </main>
+</body>
+</html>
